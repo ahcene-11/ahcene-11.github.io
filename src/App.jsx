@@ -34,6 +34,7 @@ function App() {
 
       
       <About />
+      
       <Parcours />
       <Competences />
       <MesProjets />
