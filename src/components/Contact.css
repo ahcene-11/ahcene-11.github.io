@@ -1,0 +1,66 @@
+ 
+.section-contact {
+  padding: 5rem 2rem;
+  background-color: #0f0f0f;
+  color: white;
+  text-align: center;
+  border-top: 2px solid #d4af37;
+}
+
+.section-contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #d4af37;
+  letter-spacing: 2px;
+}
+
+.section-contact p {
+  max-width: 600px;
+  margin: 0 auto 3rem auto; 
+  color: #cccccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.conteneur-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.bouton-email {
+  background-color: #d4af37;
+  color: #0f0f0f;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.bouton-email:hover {
+  background-color: #e8c547;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.reseaux-sociaux {
+  display: flex;
+  gap: 2rem;
+}
+
+.reseaux-sociaux a {
+  color: #d4af37;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 2px solid transparent; 
+  padding-bottom: 5px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.reseaux-sociaux a:hover {
+  border-color: #d4af37;
+  color: #ffffff;
+}
