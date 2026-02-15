@@ -7,14 +7,14 @@
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #d4af37;
+  color: #e8e8e8;
   letter-spacing: 2px;
 }
 
 .timeline {
   max-width: 800px;
   margin: 0 auto;
-  border-left: 4px solid #d4af37; 
+  border-left: 4px solid rgba(232, 232, 232, 0.3); 
   padding-left: 2rem;
 }
 
@@ -31,20 +31,20 @@
   width: 16px;
   height: 16px;
   background-color: #0f0f0f;
-  border: 4px solid #d4af37;
+  border: 4px solid rgba(232, 232, 232, 0.4);
   border-radius: 50%;
 }
 
 .date {
   display: inline-block;
-  background-color: rgba(212, 175, 55, 0.2);
-  color: #d4af37;
+  background-color: rgba(232, 232, 232, 0.1);
+  color: #e8e8e8;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-weight: bold;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-  border: 1px solid #d4af37;
+  border: 1px solid rgba(232, 232, 232, 0.3);
 }
 
 .timeline-item h3 {

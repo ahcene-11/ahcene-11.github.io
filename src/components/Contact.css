@@ -1,66 +1,113 @@
- 
 .section-contact {
-  padding: 5rem 2rem;
-  background-color: #0f0f0f;
-  color: white;
-  text-align: center;
-  border-top: 2px solid #d4af37;
+  background-color: #0a0a0a; 
+  color: #e8e8e8;
+  padding: 4rem 2rem 1rem 2rem;
+  border-top: 1px solid rgba(232, 232, 232, 0.1);
 }
 
-.section-contact h2 {
-  font-size: 2.5rem;
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  padding-bottom: 3rem; 
+  border-bottom: 1px solid rgba(232, 232, 232, 0.1); 
+}
+
+.footer-texte {
+  flex: 1; 
+  text-align: left; 
+}
+
+.footer-texte h2 {
+  font-size: 2.2rem;
   margin-bottom: 1rem;
-  color: #d4af37;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
-.section-contact p {
-  max-width: 600px;
-  margin: 0 auto 3rem auto; 
-  color: #cccccc;
+.footer-texte p {
   line-height: 1.6;
-  font-size: 1.1rem;
+  color: #a0a0a0; 
+  font-size: 1rem;
+  max-width: 500px; 
 }
 
-.conteneur-contact {
+
+.footer-actions {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
+  align-items: flex-end; 
+  gap: 1.5rem;
 }
 
 .bouton-email {
-  background-color: #d4af37;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #e8e8e8; 
   color: #0f0f0f;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: none;
+  padding: 0.8rem 1.5rem;
   border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .bouton-email:hover {
-  background-color: #e8c547;
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); 
 }
 
 .reseaux-sociaux {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.reseaux-sociaux a {
-  color: #d4af37;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border-bottom: 2px solid transparent; 
-  padding-bottom: 5px;
-  transition: border-color 0.3s ease, color 0.3s ease;
+.social-link {
+  color: #a0a0a0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.reseaux-sociaux a:hover {
-  border-color: #d4af37;
+.social-link:hover {
+  transform: translateY(-4px); 
+}
+
+
+.social-link.github:hover {
   color: #ffffff;
+}
+
+.social-link.linkedin:hover {
+  color: #0077b5; 
+}
+
+/* --- LE COPYRIGHT  --- */
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* --- MODE TÉLÉPHONE (Magie du responsive) --- */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* On empile de haut en bas */
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footer-texte {
+    text-align: center; /* On recentre le texte sur mobile */
+  }
+
+  .footer-actions {
+    align-items: center; /* On recentre les boutons sur mobile */
+  }
 }

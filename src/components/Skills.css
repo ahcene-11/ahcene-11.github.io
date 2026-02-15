@@ -7,7 +7,7 @@
 .section-competences h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #d4af37;
+  color: #e8e8e8;
   letter-spacing: 2px;
 }
 
@@ -23,43 +23,75 @@
   background-color: #1a1a1a;
   padding: 2rem;
   border-radius: 10px;
-  border: 1px solid #d4af37;
+  border: 1px solid rgba(232, 232, 232, 0.2);
   text-align: left;
   transition: all 0.3s ease;
 }
 
 .carte-competence:hover {
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 30px rgba(232, 232, 232, 0.15);
 }
 
 .carte-competence h3 {
   margin-top: 0;
-  color: #d4af37;
+  color: #e8e8e8;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #d4af37;
+  border-bottom: 2px solid rgba(232, 232, 232, 0.3);
   padding-bottom: 0.5rem;
 }
 
-.conteneur-badges {
+.conteneur-technologies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.tech-item {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 0.8rem;
+  padding: 1.2rem 0.8rem;
+  background-color: rgba(232, 232, 232, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.badge {
-  background-color: rgba(212, 175, 55, 0.2);
-  color: #d4af37;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid #d4af37;
+.tech-item:hover {
+  background-color: rgba(232, 232, 232, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(232, 232, 232, 0.15);
 }
 
-.badge:hover {
-  transform: translateY(-3px);
-  background-color: #d4af37;
-  color: #0f0f0f;
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+.tech-logo {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.tech-name {
+  color: #e8e8e8;
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .conteneur-technologies {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .tech-logo {
+    font-size: 2rem;
+  }
+
+  .tech-name {
+    font-size: 0.75rem;
+  }
 }

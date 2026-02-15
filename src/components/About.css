@@ -2,7 +2,7 @@
   padding: 4rem 2rem;
   background-color: #1a1a1a;
   text-align: center;
-  border-top: 1px solid #d4af37;
+  border-top: 1px solid rgba(232, 232, 232, 0.2);
 }
 
 .conteneur-apropos {
@@ -12,7 +12,7 @@
 
 .section-apropos h2 {
   font-size: 2.5rem;
-  color: #d4af37;
+  color: #e8e8e8;
   margin-bottom: 2rem;
   letter-spacing: 2px;
 }

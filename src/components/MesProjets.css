@@ -7,7 +7,7 @@
 .titre-section {
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #d4af37;
+  color: #e8e8e8;
   letter-spacing: 2px;
 }
 
@@ -23,20 +23,20 @@
   background-color: #0f0f0f;
   padding: 2rem;
   border-radius: 10px;
-  border: 1px solid #d4af37;
-  box-shadow: 0 4px 6px rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(232, 232, 232, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
 }
 
 .carte-projet:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(232, 232, 232, 0.15);
 }
 
 .carte-projet h3 {
   margin-top: 0;
-  color: #d4af37;
+  color: #e8e8e8;
 }
 
 .carte-projet p {
@@ -48,16 +48,17 @@
 .lien-projet {
   display: inline-block;
   background-color: transparent;
-  color: #d4af37;
+  color: #e8e8e8;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 40px;
   font-weight: bold;
-  border: 2px solid #d4af37;
+  border: 2px solid rgba(232, 232, 232, 0.5);
   transition: all 0.3s ease;
 }
 
 .lien-projet:hover {
-  background-color: #d4af37;
-  color: #0f0f0f;
+  background-color: rgba(232, 232, 232, 0.15);
+  color: #e8e8e8;
+  border-color: rgba(232, 232, 232, 0.8);
 }

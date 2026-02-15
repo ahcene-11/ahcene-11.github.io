@@ -12,7 +12,7 @@ function App() {
     <div className="portfolio-container">
       <Navbar />
 
-      <header style={{ padding: '4rem 2rem', backgroundColor: '#0f0f0f' }}>
+      <header id="accueil" className="header-fullscreen">
         <div className="header-container">
           <div className="profile-image-wrapper">
             <div className="gradient-circle"></div>
@@ -23,12 +23,17 @@ function App() {
             />
           </div>
           <div className="header-text">
-            <h1>Bonjour,<br />moi c'est <span className="highlight">Ahcene</span></h1>
-            <h2><span className="text-white">Développeur</span> <span className="text-gold">Full</span> <span className="text-white">stack</span></h2>
+            <h1>Salut,<br />moi c'est <span className="highlight">Ahcène</span></h1>
+            <h2><span className="text-white">Développeur</span> <span className="text-white">Full stack</span> </h2>
             
-            <a href="/mon-cv.pdf" download="mon-cv.pdf" className="bouton-cv">
-              Télécharger mon CV 📄
-            </a>
+            <div className="boutons-container">
+              <a href="/mon-cv.pdf" download="mon-cv.pdf" className="bouton-cv">
+                Télécharger mon CV 
+              </a>
+              <a href="#contact" className="bouton-cv">
+                Me contacter 
+              </a>
+            </div>
           </div>
         </div>
       </header>

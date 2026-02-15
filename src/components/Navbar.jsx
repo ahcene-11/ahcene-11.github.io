@@ -19,7 +19,7 @@ function Navbar() {
         <strong>AHCENE AMOUCHAS</strong>
       </div>
       <ul className="liens-menu">
-        <li><a href="#accueil">ACCUEIL</a></li>
+        <li><a href="#">ACCUEIL</a></li>
         <li><a href="#apropos">A PROPOS</a></li>
         <li><a href="#parcours">PARCOURS</a></li>
         <li><a href="#competences">COMPETENCES</a></li>
