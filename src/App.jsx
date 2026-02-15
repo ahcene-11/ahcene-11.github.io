@@ -5,6 +5,7 @@ import Parcours from './components/Parcours';
 import Competences from './components/Skills';
 import MesProjets from './components/MesProjets';
 import Contact from './components/Contact';
+import maPhoto from './assets/me.jpg';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <div className="profile-image-wrapper">
             <div className="gradient-circle"></div>
             <img 
-              src="./src/assets/me.jpg" 
+              src={maPhoto}
               alt="Ahcene" 
               className="profile-image"
             />
@@ -34,7 +35,7 @@ function App() {
 
       
       <About />
-      
+
       <Parcours />
       <Competences />
       <MesProjets />
