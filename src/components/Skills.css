@@ -13,9 +13,10 @@
 
 .grille-competences {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -81,7 +82,19 @@
   line-height: 1.2;
 }
 
+@media (max-width: 1200px) {
+  .grille-competences {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+  }
+}
+
 @media (max-width: 768px) {
+  .grille-competences {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+  }
+
   .conteneur-technologies {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 0.8rem;

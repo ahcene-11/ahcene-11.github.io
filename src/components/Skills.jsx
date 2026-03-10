@@ -1,5 +1,5 @@
 import './Skills.css'
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs, SiSymfony, SiTailwindcss, SiPython, SiSpringboot, SiDocker, SiUml, SiFigma } from 'react-icons/si'
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs, SiSymfony, SiTailwindcss, SiPython, SiSpringboot, SiDocker, SiUml, SiFigma,SiMysql, SiPostgresql, SiMongodb, SiMariadb, SiOracle } from 'react-icons/si'
 import { FaJava, FaCode, FaGitAlt } from 'react-icons/fa'
 import { DiScrum } from "react-icons/di";
 
@@ -21,6 +21,13 @@ function Skills() {
         { name: 'Python', Icon: SiPython, color: '#3776AB' },
         { name: 'Spring Boot', Icon: SiSpringboot, color: '#6DB33F' },
         { name: 'UML', Icon: SiUml, color: '#007ACC' }
+      ],
+      db: [
+        { name: 'MySQL', Icon: SiMysql, color: '#4479A1' },
+        { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
+        { name: 'MariaDB', Icon: SiMariadb, color: '#8d6726' },
+        { name: 'Oracle', Icon: SiOracle, color: '#F80000' },
+        { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791' }
       ],
       outils: [
         { name: 'Docker', Icon: SiDocker, color: '#2496ED' },
@@ -68,7 +75,22 @@ function Skills() {
           </div>
         </div>
 
-        {/* Catégorie 3 : Outils */}
+        {/* Catégorie 3 : Base de données */}
+        <div className="carte-competence">
+          <h3>Base de Données</h3>
+          <div className="conteneur-technologies">
+            {technologies.db.map(tech => (
+              <div key={tech.name} className="tech-item">
+                <div className="tech-logo">
+                  {tech.Icon ? <tech.Icon color={tech.color} size="1.8em" /> : <span>•</span>}
+                </div>
+                <span className="tech-name">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Catégorie 4 : Outils */}
         <div className="carte-competence">
           <h3>Outils & Méthodes</h3>
           <div className="conteneur-technologies">
