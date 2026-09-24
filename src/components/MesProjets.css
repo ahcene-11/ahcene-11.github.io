@@ -11,54 +11,256 @@
   letter-spacing: 2px;
 }
 
-.grille-projets {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto; 
+.carrousel-projets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1300px; /* On a élargi la zone globale pour donner de l'espace */
+  margin: 0 auto;
 }
 
+/* La carte est maintenant plus grande pour accueillir les 10 lignes de texte */
 .carte-projet {
   background-color: #0f0f0f;
-  padding: 2rem;
-  border-radius: 10px;
+  padding: 2.5rem;
+  border-radius: 12px;
   border: 1px solid rgba(232, 232, 232, 0.2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
+  width: 100%;
+  max-width: 1100px; /* Agrandie de 950px à 1100px */
+  min-height: 450px; /* Plus haute pour que le texte rentre bien */
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centre le contenu verticalement */
+  gap: 3rem; /* Plus d'espace entre l'image et le texte */
+  animation: apparition-projet 0.35s ease;
 }
 
 .carte-projet:hover {
-  transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(232, 232, 232, 0.15);
 }
 
-.carte-projet h3 {
-  margin-top: 0;
-  color: #e8e8e8;
+@keyframes apparition-projet {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.carte-projet p {
-  color: #cccccc;
-  line-height: 1.5;
+/* --- ZONE IMAGE FIXE ET NON ROGNÉE --- */
+.image-projet-wrapper {
+  position: relative;
+  flex: 0 0 45%; /* Prend 45% de la largeur de la carte */
+  border-radius: 8px;
+  background-color: #111; /* Fond très sombre pour combler les vides si l'image est d'un format différent */
+  border: 1px solid rgba(232, 232, 232, 0.1);
+  aspect-ratio: 16 / 10; /* Un format fixe et équilibré */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-projet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* L'ASTUCE EST ICI : L'image ne sera jamais coupée, elle s'adapte à la boîte */
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.4s ease-in-out;
+  padding: 0.5rem; /* Petite marge interne pour faire respirer l'image */
+}
+
+.image-projet.photo-active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Flèches et points de la galerie */
+.fleche-interne {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.fleche-interne:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.fleche-interne.gauche { left: 10px; }
+.fleche-interne.droite { right: 10px; }
+
+.indicateurs-photos {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.point-photo {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.point-photo:hover { background-color: rgba(255, 255, 255, 0.8); }
+.point-photo.actif { background-color: #ffffff; transform: scale(1.3); border: none; }
+
+/* --- ZONE TEXTE ENRICHIE --- */
+.contenu-projet {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.contenu-projet h3 {
+  margin-top: 0;
+  color: #e8e8e8;
+  font-size: 1.8rem;
   margin-bottom: 1.5rem;
+}
+
+/* Nouveau style pour les descriptions longues avec listes à puces */
+.description-detaillee p {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.description-detaillee ul {
+  color: #bbbbbb;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem; /* Décale les puces vers la droite */
+}
+
+.description-detaillee li {
+  margin-bottom: 0.6rem;
+}
+
+.description-detaillee strong {
+  color: #e8e8e8; /* Met les mots-clés en évidence (blanc plus vif) */
 }
 
 .lien-projet {
   display: inline-block;
+  align-self: flex-start;
   background-color: transparent;
   color: #e8e8e8;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   text-decoration: none;
-  border-radius: 40px;
+  border-radius: 8px;
   font-weight: bold;
-  border: 2px solid rgba(232, 232, 232, 0.5);
+  border: 2px solid rgba(232, 232, 232, 0.3);
   transition: all 0.3s ease;
+  margin-top: auto; /* Pousse le bouton vers le bas si la description est courte */
 }
 
 .lien-projet:hover {
-  background-color: rgba(232, 232, 232, 0.15);
-  color: #e8e8e8;
+  background-color: rgba(255, 255, 255, 0.05);
   border-color: rgba(232, 232, 232, 0.8);
+}
+
+/* Flèches du grand carrousel */
+.fleche-carrousel {
+  flex-shrink: 0;
+  background-color: transparent;
+  color: #e8e8e8;
+  border: 2px solid rgba(232, 232, 232, 0.5);
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.fleche-carrousel:hover {
+  background-color: rgba(232, 232, 232, 0.15);
+  border-color: rgba(232, 232, 232, 0.8);
+  transform: scale(1.08);
+}
+
+.indicateurs-projets {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+
+.point-indicateur {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(232, 232, 232, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.point-indicateur:hover { background-color: rgba(232, 232, 232, 0.6); }
+.point-indicateur.actif { background-color: #e8e8e8; transform: scale(1.2); }
+
+/* Mode mobile */
+@media (max-width: 900px) {
+  .carte-projet {
+    flex-direction: column;
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .image-projet-wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .carrousel-projets {
+    gap: 0.75rem;
+  }
+
+  .fleche-carrousel {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
 }
