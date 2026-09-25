@@ -1,3 +1,12 @@
+body {
+  /* L'effet Animus : des lignes croisées très fines et ultra transparentes */
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px);
+    
+  /* Pour s'assurer que le fond reste fixe quand on scroll (très bel effet de profondeur) */
+  background-attachment: fixed;
+}
 .header-fullscreen {
   height: 88vh;
   width: 100%;

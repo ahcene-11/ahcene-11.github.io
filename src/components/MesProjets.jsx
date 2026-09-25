@@ -12,12 +12,12 @@ const projets = [
         <ul>
           <li><strong>Communication :</strong> Mise en place d'Apache Kafka pour le messaging asynchrone entre les services.</li>
           <li><strong>API & Sécurité :</strong> Création d'une API Gateway en GraphQL pour orchestrer des services REST et gRPC, sécurisée via Keycloak.</li>
-          <li><strong>Infrastructure :</strong> Conteneurisation complète de l'environnement avec Docker Compose, et gestion de la persistance des données sur des bases MySQL.</li>
+          <li><strong>Infrastructure :</strong> Conteneurisation de l'environnement avec Docker et orchestration avancée des déploiements via <strong>Kubernetes</strong> et <strong>Helm</strong>.</li>
         </ul>
         <p>Un projet d'envergure démontrant une maîtrise des environnements distribués et de la scalabilité.</p>
       </div>
     ),
-    images: ["/projets/fleet.png"],
+    images: ["/projets/flotte-vehicules.jpg"],
     lien: "https://github.com/M1-ROUEN-GIL/archi-distrib-flotte-vehicules",
   },
   {
@@ -59,12 +59,12 @@ const projets = [
     description: (
       <div className="description-detaillee">
         <p>
-          Plateforme numérique développé en symfony centralisant plusieurs jeux de société célèbres, développée en équipe lors d'un sprint académique de niveau Master.
+          Plateforme numérique centralisant plusieurs jeux de société célèbres, développée en équipe lors d'un sprint académique de niveau Master.
         </p>
         <ul>
+          <li><strong>Développement Plateforme :</strong> Résolution de bugs critiques, création d'un outil de signalement (bug report) et d'un panel d'administration pour la modération des utilisateurs et des lobbies.</li>
           <li><strong>Intégration de jeux :</strong> Implémentation et refactoring de jeux classiques tels que Puissance 4, Splendor, Azul, Myrmes et Six qui prend.</li>
-          <li><strong>Méthodologie :</strong> Organisation du travail sous méthodologie Agile Scrum avec livraisons itératives.</li>
-          <li><strong>Transversalité :</strong> Participation active à la communication du projet (réalisation de trailers vidéo sous CapCut, slides Canva) pour la soutenance finale.</li>
+          <li><strong>Méthodologie & Communication :</strong> Organisation en Agile Scrum et réalisation des supports de soutenance (trailers vidéo sous CapCut, slides).</li>
         </ul>
       </div>
     ),
@@ -132,7 +132,7 @@ const projets = [
         <ul>
           <li><strong>Composants :</strong> Architecture modulaire en React, favorisant la réutilisation du code et la facilité de maintenance.</li>
           <li><strong>UI Avancée :</strong> Effets visuels modernes (Glassmorphism, animations au scroll, carrousel d'images personnalisé).</li>
-          <li><strong>Déploiement :</strong> Intégration continue (CI/CD) mise en place avec GitHub Actions pour une publication automatisée sur GitHub Pages.</li>
+          <li><strong>Déploiement :</strong> Intégration continue (CI/CD) automatisée avec GitHub Actions pour une publication sur GitHub Pages.</li>
         </ul>
       </div>
     ),
