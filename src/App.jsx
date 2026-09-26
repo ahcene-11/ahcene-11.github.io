@@ -5,7 +5,7 @@ import Parcours from './components/Parcours';
 import Competences from './components/Skills';
 import MesProjets from './components/MesProjets';
 import Contact from './components/Contact';
-import maPhoto from './assets/me.jpg';
+import maPhoto from '../public/me.png'; 
 
 function App() {
   return (
@@ -16,11 +16,13 @@ function App() {
         <div className="header-container">
           <div className="profile-image-wrapper">
             <div className="gradient-circle"></div>
-            <img 
-              src={maPhoto}
-              alt="Ahcene" 
-              className="profile-image"
-            />
+            <div className="profile-image-frame">
+              <img
+                src={maPhoto}
+                alt="Ahcene"
+                className="profile-image"
+              />
+            </div>
           </div>
           <div className="header-text">
             <h1>Salut,<br />moi c'est <span className="highlight">Ahcène</span></h1>

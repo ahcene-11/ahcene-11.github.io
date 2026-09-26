@@ -1,16 +1,7 @@
-body {
-  /* L'effet Animus : des lignes croisées très fines et ultra transparentes */
-  background-image: 
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px),
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px);
-    
-  /* Pour s'assurer que le fond reste fixe quand on scroll (très bel effet de profondeur) */
-  background-attachment: fixed;
-}
 .header-fullscreen {
   height: 88vh;
   width: 100%;
-  background-color: #0f0f0f;
+  background-color: transparent;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -27,43 +18,134 @@ body {
   margin: 0 auto;
 }
 
+/* Conteneur principal réduit pour s'adapter à la nouvelle taille de l'ombre */
 .profile-image-wrapper {
   position: relative;
   flex-shrink: 0;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Premier anneau d'énergie (tourne dans un sens) */
+.profile-image-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 580px; /* Agrandit pour englober la hauteur de la photo */
+  height: 580px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(79, 209, 255, 0.35);
+  z-index: 0;
+  pointer-events: none;
+  animation: rotation-anneau 24s linear infinite;
+}
+
+/* Second anneau d'énergie (tourne dans l'autre sens) */
+.profile-image-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 232, 232, 0.15);
+  border-top-color: rgba(79, 209, 255, 0.5);
+  border-bottom-color: rgba(79, 209, 255, 0.5);
+  z-index: 0;
+  pointer-events: none;
+  animation: rotation-anneau-inverse 16s linear infinite;
+}
+
+/* L'ombre intermédiaire : collée beaucoup plus près du portrait */
 .gradient-circle {
   position: absolute;
-  width: 470px;
-  height: 470px;
-  background: linear-gradient(135deg, rgba(232, 232, 232, 0.2) 0%, rgba(200, 200, 200, 0.1) 50%, rgba(180, 180, 180, 0.05) 100%);
-  border-radius: 50%;
+  width: 440px; /* Réduit de 510px */
+  height: 580px; /* Réduit de 630px */
+  background: linear-gradient(160deg, rgba(45, 212, 191, 0.45) 0%, rgba(56, 189, 248, 0.22) 50%, rgba(0, 0, 0, 0.05) 100%);
   z-index: 1;
-  filter: blur(20px);
+  filter: blur(13px);
+  clip-path: polygon(var(--forme-fragmentee));
+  animation: pulsate-rift 4s infinite alternate;
+}
+
+/* Le bloc net de ta photo (dimensions inchangées) */
+.profile-image-frame {
+  position: relative;
+  z-index: 2;
+  width: 420px;
+  height: 560px;
+  clip-path: polygon(var(--forme-fragmentee));
 }
 
 .profile-image {
   position: relative;
-  z-index: 2;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 2px solid rgba(232, 232, 232, 0.3);
-  box-shadow: 0 0 50px rgba(232, 232, 232, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-position: center 12%;
+  display: block;
+  transition: filter 0.4s ease, transform 0.4s ease;
 }
 
-.profile-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 70px rgba(232, 232, 232, 0.3);
+/* Bandes façon aurore qui traversent la photo */
+.profile-image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(45, 212, 191, 0.16) 28%,
+    rgba(16, 185, 129, 0.3) 48%,
+    rgba(56, 189, 248, 0.16) 68%,
+    transparent 100%
+  );
+  background-size: 100% 320%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: balayage-scan 6s ease-in-out infinite;
 }
 
+.profile-image-frame:hover .profile-image {
+  filter: brightness(1.15) contrast(1.1);
+  transform: scale(1.03);
+}
+
+.profile-image-wrapper {
+  --forme-fragmentee:
+    /* Côté gauche en escalier */
+    0% 24%, 8% 24%, 8% 10%, 16% 10%,
+    /* Le haut avec de nouveaux petits piliers décalés (au lieu de la ligne droite) */
+    16% 0%, 28% 0%, 28% 4%, 42% 4%, 42% 0%, 58% 0%, 58% 5%, 72% 5%, 72% 0%, 84% 0%,
+    /* Côté droit en escalier */
+    84% 14%, 94% 14%, 94% 26%, 100% 26%,
+    /* Descente droite */
+    100% 85%,
+    /* Le bas asymétrique */
+    90% 85%, 90% 96%, 76% 96%, 76% 80%, 60% 80%, 60% 100%, 42% 100%, 42% 90%, 26% 90%, 26% 100%, 10% 100%, 10% 94%, 0% 94%;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pulsate-rift {
+  from { filter: blur(13px) brightness(1); transform: scale(1); }
+  to { filter: blur(18px) brightness(1.25); transform: scale(1.015); }
+}
+
+@keyframes balayage-scan {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+@keyframes rotation-anneau {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotation-anneau-inverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
 .header-text {
   flex: 1;
   min-width: 300px;
@@ -79,7 +161,7 @@ body {
 }
 
 .header-text h1 .highlight {
-  color: #d4af37;
+  color: rgba(56, 191, 248, 0.515);
   font-weight: 600;
 }
 
@@ -135,9 +217,24 @@ body {
     gap: 2rem;
   }
 
-  .profile-image {
-    width: 200px;
-    height: 200px;
+  .profile-image-wrapper {
+    width: 240px;
+    height: 320px;
+  }
+
+  .profile-image-wrapper::before,
+  .profile-image-wrapper::after {
+    display: none;
+  }
+
+  .gradient-circle {
+    width: 210px; /* Réduit pour épouser la forme mobile */
+    height: 273px;
+  }
+
+  .profile-image-frame {
+    width: 190px;
+    height: 253px;
   }
 
   .header-text {

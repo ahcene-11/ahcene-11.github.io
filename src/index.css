@@ -1,18 +1,54 @@
-
 html {
   scroll-behavior: smooth;
 }
 
+/* Le body garde juste la couleur de fond noire */
 body {
   margin: 0;
   padding: 0;
-  background-color: #0f0f0f; 
+  background-color: #070707; /* Un noir absolu */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   color: #ffffff;
-  
+  overflow-x: hidden; /* Empêche l'apparition d'une barre de défilement horizontale */
+  position: relative;
 }
-
 
 * {
   box-sizing: border-box;
+}
+
+body::before {
+  content: '';
+  position: fixed; 
+  top: -50%;
+  left: -50%;
+  width: 200%; 
+  height: 200%;
+  z-index: -1; 
+  pointer-events: none; 
+  
+  background-image: 
+    linear-gradient(25deg, transparent calc(15% - 1px), rgba(255, 255, 255, 0.12) 15%, transparent calc(15% + 1px)),
+    linear-gradient(-35deg, transparent calc(35% - 1px), rgba(255, 255, 255, 0.08) 35%, transparent calc(35% + 1px)),
+    linear-gradient(75deg, transparent calc(60% - 1px), rgba(255, 255, 255, 0.17) 60%, transparent calc(60% + 1px)),
+    linear-gradient(-65deg, transparent calc(80% - 1px), rgba(255, 255, 255, 0.15) 80%, transparent calc(80% + 1px)),
+    linear-gradient(15deg, transparent calc(45% - 1px), rgba(255, 255, 255, 0.19) 45%, transparent calc(45% + 1px)),
+    linear-gradient(-85deg, transparent calc(55% - 1px), rgba(255, 255, 255, 0.09) 55%, transparent calc(55% + 1px)),
+    linear-gradient(85deg, transparent calc(25% - 1px), rgba(255, 255, 255, 0.13) 25%, transparent calc(25% + 1px)),
+    linear-gradient(-70deg, transparent calc(70% - 1px), rgba(255, 255, 255, 0.1) 70%, transparent calc(0% + 1px));
+
+  /* L'animation qui dure 60 secondes, de manière fluide et infinie, en aller-retour (alternate) */
+  animation: animusMove 50s linear infinite alternate;
+}
+
+/* L'instruction de mouvement pour le robot CSS */
+@keyframes animusMove {
+  0% {
+    /* Position de départ */
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    /* Il glisse doucement vers le bas à droite et tourne d'un tout petit degré */
+    transform: translate(5%, 5%) rotate(2deg);
+  }
 }
