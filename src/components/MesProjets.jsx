@@ -17,7 +17,7 @@ const projets = [
         <p>Un projet d'envergure démontrant une maîtrise des environnements distribués et de la scalabilité.</p>
       </div>
     ),
-    images: ["/projets/flotte-vehicules.jpg"],
+    images: ["/projets/fleet.png"],
     lien: "https://github.com/M1-ROUEN-GIL/archi-distrib-flotte-vehicules",
   },
   {

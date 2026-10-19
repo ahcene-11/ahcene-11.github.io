@@ -29,7 +29,7 @@ function App() {
             <h2><span className="text-white">Développeur</span> <span className="text-white">Full stack</span> </h2>
             
             <div className="boutons-container">
-              <a href="/mon-cv.pdf" download="mon-cv.pdf" className="bouton-cv">
+              <a href="/resume.pdf" download="resume.pdf" className="bouton-cv">
                 Télécharger mon CV 
               </a>
               <a href="#contact" className="bouton-cv">
